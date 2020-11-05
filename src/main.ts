@@ -38,7 +38,7 @@ interface Milestone {
 
 export const pickLatestSprint = (milestones: {data: Milestone[]}): Milestone => {
   const sortedMilestones = milestones.data
-    .filter((v) => v.title.match(/Sprint \d+/))
+    .filter((v) => v.title.match(/Sprint #\d+/))
     .sort((a, b) => {
       const s1 = a.title.substr(6, a.title.length - 1);
       const s2 = b.title.substr(6, b.title.length - 1);

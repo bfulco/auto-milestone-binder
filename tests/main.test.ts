@@ -23,17 +23,17 @@ describe('pickLatestSprint', () => {
   test.each([
     [2, {
       data: [
-        makeMilestone('Sprint 1', 4),
-        makeMilestone('Sprint 2', 3),
-        makeMilestone('Sprint 3', 1),
-        makeMilestone('Sprint 4', 2),
+        makeMilestone('Sprint #1', 4),
+        makeMilestone('Sprint #2', 3),
+        makeMilestone('Sprint #3', 1),
+        makeMilestone('Sprint #4', 2),
       ]
     }],
     [4, {
       data: [
-        makeMilestone('Sprint 1', 1),
+        makeMilestone('Sprint #1', 1),
         makeMilestone('Hello World', 3),
-        makeMilestone('Sprint 2', 4),
+        makeMilestone('Sprint #2', 4),
         makeMilestone('codehex', 2),
       ]
     }],
