@@ -37,6 +37,14 @@ describe('pickLatestSprint', () => {
         makeMilestone('codehex', 2),
       ]
     }],
+    [1, {
+      data: [
+        makeMilestone('Sprint #10', 1),
+        makeMilestone('Hello World', 3),
+        makeMilestone('Sprint #2', 4),
+        makeMilestone('codehex', 2),
+      ]
+    }],
   ])("expected '%p', argument: %o", (want, arg) => {
     const got = pickLatestSprint(arg)
     expect(got?.number).toBe(want)
