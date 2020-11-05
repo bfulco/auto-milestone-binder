@@ -38,10 +38,10 @@ interface Milestone {
 
 export const pickLatestSprint = (milestones: {data: Milestone[]}): Milestone => {
   const sortedMilestones = milestones.data
-    .filter((v) => v.title.match(/Sprint \d+/))
+    .filter((v) => v.title.match(/Sprint #\d+/))
     .sort((a, b) => {
-      const s1 = a.title.substr(6, a.title.length - 1);
-      const s2 = b.title.substr(6, b.title.length - 1);
+      const s1 = parseInt(a.title.substr(8));
+      const s2 = parseInt(b.title.substr(8));
       if (s1 < s2) {
         return -1;
       } else if (s1 > s2) {
@@ -92,6 +92,11 @@ async function run() {
   }
 
   const smallestVersion = pickLatestSprint(milestones);
+
+  if (smallestVersion == null) {
+    console.log('Couldn\'t find milestone');
+    return;
+  }
 
   await client.issues.update({
     ...repo,
