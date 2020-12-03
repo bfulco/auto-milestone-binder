@@ -70,8 +70,7 @@ async function run() {
     return;
   }
 
-  if ((isPR && payload.action !== "opened")
-    || (isIssue && payload.action !== "assigned")) {
+  if (payload.action !== "closed") {
     console.log('Not the right action, no work to be done.')
     return;
   }
